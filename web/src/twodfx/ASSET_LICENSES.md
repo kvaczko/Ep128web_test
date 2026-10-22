@@ -8,8 +8,8 @@ Certain built-in 2dfx Easter eggs/showcases reproduce recognizable material from
 
 | Showcase | Embedded data | Original work and attribution |
 |---|---|---|
-| C9 — animated worm | `src/assets/eggs/egg_C9_wriggler_assets.h`: screenshot-derived animation frames | *Wriggler* (ZX Spectrum, 1985), credited to Devonshire House / Romantic Robot. See https://worldofspectrum.net/item/0005761/ |
-| D3/D4/D5 — spacecraft | `src/assets/eggs/egg_D3_elite_showcase_data.h`: Elite-derived ship vertices, faces and edges | *Elite* (1984), created by Ian Bell and David Braben; BBC Micro edition published by Acornsoft. Mark Moxon's annotated reconstruction/source is acknowledged as a reference, not as a redistribution license: https://elite.bbcelite.com/about_site/acknowledgements.html and https://github.com/markmoxon/elite-source-code-bbc-micro-disc |
+| C9 — animated worm | `firmware_eggs/egg_C9_wriggler_assets.h`: screenshot-derived animation frames | *Wriggler* (ZX Spectrum, 1985), credited to Devonshire House / Romantic Robot. See https://worldofspectrum.net/item/0005761/ |
+| D3/D4/D5 — spacecraft | `firmware_eggs/egg_D3_elite_showcase_data.h`: Elite-derived ship vertices, faces and edges | *Elite* (1984), created by Ian Bell and David Braben; BBC Micro edition published by Acornsoft. Mark Moxon's annotated reconstruction/source is acknowledged as a reference, not as a redistribution license: https://elite.bbcelite.com/about_site/acknowledgements.html and https://github.com/markmoxon/elite-source-code-bbc-micro-disc |
 
 **Removal and change of demo material:** The third-party-derived artwork and ship data are optional showcase content, not necessary to the general 2dfx protocol. They may be modified, replaced or **removed from future distribution packages at any time, without prior notice**, including following a request from an author, publisher or other rights holder. Such changes may affect the corresponding Easter egg's visual fidelity.
 
