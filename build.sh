@@ -85,7 +85,30 @@ SOURCES="
   web/src/twodfx/core/twodfx_emu.c
   web/src/twodfx/core/twodfx_raster.c
   web/src/twodfx/core/twodfx_3d.c
-  web/src/twodfx/core/twodfx_firmware_page.c
+  web/src/twodfx/firmware_eggs/egg_C0_logo.c
+  web/src/twodfx/firmware_eggs/egg_C1_benchmark.c
+  web/src/twodfx/firmware_eggs/egg_C2_primitives.c
+  web/src/twodfx/firmware_eggs/egg_C3_text.c
+  web/src/twodfx/firmware_eggs/egg_C4_blit.c
+  web/src/twodfx/firmware_eggs/egg_C5_pattern.c
+  web/src/twodfx/firmware_eggs/egg_C6_tilemap.c
+  web/src/twodfx/firmware_eggs/egg_C7_pong_basic.c
+  web/src/twodfx/firmware_eggs/egg_C8_pong_wow.c
+  web/src/twodfx/firmware_eggs/egg_C9_wriggler.c
+  web/src/twodfx/firmware_eggs/egg_CA_boulder.c
+  web/src/twodfx/firmware_eggs/egg_CB_arcpie_benchmark.c
+  web/src/twodfx/firmware_eggs/egg_CC_diag.c
+  web/src/twodfx/firmware_eggs/egg_CD_blit_full.c
+  web/src/twodfx/firmware_eggs/egg_CE_layer.c
+  web/src/twodfx/firmware_eggs/egg_CF_tvc_bitpattern.c
+  web/src/twodfx/firmware_eggs/egg_D0_tvc_crisp_tearing.c
+  web/src/twodfx/firmware_eggs/egg_D1_ruler.c
+  web/src/twodfx/firmware_eggs/egg_D2_xy_offset.c
+  web/src/twodfx/firmware_eggs/egg_D3_elite_showcase.c
+  web/src/twodfx/firmware_eggs/egg_D4_3d_scope.c
+  web/src/twodfx/firmware_eggs/egg_D5_public_mesh.c
+  web/src/twodfx/firmware_eggs/egg_DF_graphics_test.c
+  web/src/twodfx/firmware_eggs/firmware_page.c
   web/src/twodfx/assets/logo_2dfx_asset.c
   web/src/twodfx_bridge.cpp
   web/src/soundio_web.cpp
@@ -111,7 +134,7 @@ for src in $SOURCES; do
     echo "CXX $src"
     case "$src" in
       web/src/card/*.c|web/src/card/*/*.c) emcc -O3 -w -DHAVE_STDINT_H -DLFS_NO_ASSERT -Iweb/src -MMD -MF "$obj.d" -c "$src" -o "$obj" ;;  # vendored C code
-      web/src/twodfx/*/*.c) emcc -O3 -std=c99 -w -Iweb/src/twodfx/include -Iweb/src/twodfx/core -Iweb/src/twodfx/assets -MMD -MF "$obj.d" -c "$src" -o "$obj" ;;  # 2dfx module (MIT)
+      web/src/twodfx/*/*.c) emcc -O3 -std=c99 -w -Iweb/src/twodfx/include -Iweb/src/twodfx/core -Iweb/src/twodfx/assets -Iweb/src/twodfx/firmware_eggs -Iweb/src/twodfx/firmware_eggs/portable -MMD -MF "$obj.d" -c "$src" -o "$obj" ;;  # 2dfx module (MIT)
       *) em++ $CFLAGS -MMD -MF "$obj.d" -c "$src" -o "$obj" ;;
     esac
   fi

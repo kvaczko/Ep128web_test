@@ -22,3 +22,21 @@ All 23 Easter egg IDs are present in source; **23 implemented IDs is not the sam
 The C9 Wriggler sprite captures and Elite ship models are included **unchanged** to preserve the original firmware showcase appearance. They are third-party-derived material **outside this project's MIT grant** and may be removed without advance notice; see `ASSET_LICENSES.md`.
 
 The supplied C++ adapter is a thin buildable connector **not a patched or validated ep128emu branch**. Zoltán Balogh and Károly Kiss can independently wire the same host ABI; physical waveform/image tests and regression of existing TVC256+++ behavior are integration-stage tasks.
+
+## Original v1.1.0 egg-source import (developer fidelity branch)
+
+The firmware-resident eggs and `SHOW_FW` now call the original v1.1.0 C
+source through the portable `twodfx_api` layer, sharing the normal BG/sprite/FG
+renderer. The former independently scripted approximation `.inc` modules and
+firmware-page raster redraw have been removed from the build and repository.
+All five D3 Elite ships and D4 Asp geometry come from the original
+`firmware_eggs/egg_D3_elite_showcase_data.h` (byte-exact provenance is stored
+in `firmware_eggs/ORIGIN_SHA256.json`).
+
+**Unresolved contractual limitations:** firmware eggs retain original module
+static state, which means per-device concurrent independent egg animation and
+v13 snapshot restoration of running eggs are not source faithful. Pico entropy,
+Core0 idle-worker scheduling and diagnostic timing are replaced with portable
+logical equivalents; render-overrun timing remains deliberately unimplemented.
+Hardware visual parity and the Emscripten build require external validation.
+See `firmware_eggs/README.md` for licensing, evidence and boundaries.
