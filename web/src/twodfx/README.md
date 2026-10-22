@@ -6,6 +6,8 @@ A single, self-contained C99 2dfx module for **Enterprise** and **TVC** emulatio
 
 The portable C99/C++ implementation and 2dfx-owned public content are offered under **MIT** (`LICENSE`). Certain authentic *Elite* and *Wriggler* showcase assets are included but **are not covered by MIT**: read `ASSET_LICENSES.md` before redistributing.
 
+**Egg and SHOW_FW fidelity policy:** Port the actual hardware-validated v1.1.0 egg logic through the public `twodfx_api` rather than recreating its appearance. Károly Vaczkó authorizes the egg-specific C source he owns for MIT distribution; RP2354B-specific optimizations remain private. See [`docs/SOURCE_FIDELITY_POLICY.md`](docs/SOURCE_FIDELITY_POLICY.md).
+
 ## Included
 
 | Location | Contents |

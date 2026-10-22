@@ -8,8 +8,8 @@ Certain built-in 2dfx Easter eggs/showcases reproduce recognizable material from
 
 | Showcase | Embedded data | Original work and attribution |
 |---|---|---|
-| C9 — animated worm | `src/assets/eggs/egg_C9_wriggler_assets.h`: screenshot-derived animation frames | *Wriggler* (ZX Spectrum, 1985), credited to Devonshire House / Romantic Robot. See https://worldofspectrum.net/item/0005761/ |
-| D3/D4/D5 — spacecraft | `src/assets/eggs/egg_D3_elite_showcase_data.h`: Elite-derived ship vertices, faces and edges | *Elite* (1984), created by Ian Bell and David Braben; BBC Micro edition published by Acornsoft. Mark Moxon's annotated reconstruction/source is acknowledged as a reference, not as a redistribution license: https://elite.bbcelite.com/about_site/acknowledgements.html and https://github.com/markmoxon/elite-source-code-bbc-micro-disc |
+| C9 — animated worm | `firmware_eggs/egg_C9_wriggler_assets.h`: screenshot-derived animation frames | *Wriggler* (ZX Spectrum, 1985), credited to Devonshire House / Romantic Robot. See https://worldofspectrum.net/item/0005761/ |
+| D3/D4/D5 — spacecraft | `firmware_eggs/egg_D3_elite_showcase_data.h`: Elite-derived ship vertices, faces and edges | *Elite* (1984), created by Ian Bell and David Braben; BBC Micro edition published by Acornsoft. Mark Moxon's annotated reconstruction/source is acknowledged as a reference, not as a redistribution license: https://elite.bbcelite.com/about_site/acknowledgements.html and https://github.com/markmoxon/elite-source-code-bbc-micro-disc |
 
 **Removal and change of demo material:** The third-party-derived artwork and ship data are optional showcase content, not necessary to the general 2dfx protocol. They may be modified, replaced or **removed from future distribution packages at any time, without prior notice**, including following a request from an author, publisher or other rights holder. Such changes may affect the corresponding Easter egg's visual fidelity.
 
@@ -19,7 +19,7 @@ This notice and a commitment to remove content upon request **do not grant redis
 
 - Original 2dfx public logo, original SHOW_FW graphics and font artwork (to the extent rights are owned by Károly Vaczkó), and independently developed engine/game graphics are provided under MIT.
 - The ZX1 compressed-data *format* is credited to Einar Saukas; no license to third-party ZX1 implementation code is conveyed.
-- The original **private RP2354B firmware source**, its hardware-specific PIO/DMA, multicore scheduling and optimized render paths are not included or relicensed.
+- The original **private RP2354B firmware's MCU/hardware implementation** (including PIO/DMA, multicore scheduling, renderer fast paths and other hardware-specific optimizations) remains excluded and is not relicensed. The original author's **egg-specific C source and his own assets** are an expressly authorized MIT-licensed exception, as documented in `docs/SOURCE_FIDELITY_POLICY.md`. The public `twodfx_api.h` interface may be exposed to portable egg C code.
 - ep128emu source code and VM modifications retain their separate upstream licensing, including applicable GPL terms.
 
 Use of third-party game titles and company names here is for attribution only, not endorsement.
