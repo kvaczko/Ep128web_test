@@ -36,8 +36,12 @@ hardware overrun timing.
   timed diagnostic counters use portable `clock()` rather than RP2354 timings.
 - D3/D4/D5 worker work is drained to logical completion at frame acceptance,
   not scheduled against Core0 wall-clock idle time.
-- Native C99, ASan, UBSan and scenario smoke testing are available, but visual
-  accuracy must still be compared to physical Enterprise/TVC hardware.
+- Native C99, ASan, UBSan and scenario smoke testing are available.
+  On 22 October 2026 the original 2dfx creator reported manually checking all
+  Web-emulator eggs against physical Enterprise and TVC hardware (where
+  applicable) and finding the visuals identical. This is a user-reported
+  visual-comparison result, not automated pixel-by-pixel proof and not a
+  verification of hardware execution/overrun timing.
 
 The public F8h/F9h protocol and ordinary BG / sprites / FG renderer are shared
 by original egg API actions and host writes; there is no egg-specific overlay.
