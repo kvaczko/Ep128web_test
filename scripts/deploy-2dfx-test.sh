@@ -19,20 +19,26 @@ if [[ "$(git branch --show-current)" != "$BRANCH" ]]; then
   exit 1
 fi
 
-# The ep128emu submodule is patched locally by build.sh; ignore its
-# intentional working-tree changes, but do not overwrite edits in this repo.
-if [[ -n "$(git status --porcelain --ignore-submodules=all)" ]]; then
-  echo 'Uncommitted changes in the Web Emulator checkout; refusing to pull.' >&2
-  git status --short --ignore-submodules=all >&2
-  exit 1
+# This Debian VM is a disposable mirror, NOT a place to preserve local
+# commits or edits. GitHub's 2dfx-fidelity branch is authoritative.
+# Reset only this checkout: never clean /var/www or any other repository.
+echo '========== REPLACING LOCAL BRANCH FROM GITHUB =========='
+git fetch origin "$BRANCH"
+git reset --hard "refs/remotes/origin/$BRANCH"
+
+# build.sh intentionally patches the pinned ep128emu submodule. Keep those
+# already-applied patches unless the submodule commit itself has changed.
+PINNED_SUBMODULE=$(git rev-parse HEAD:ep128emu)
+CURRENT_SUBMODULE=$(git -C ep128emu rev-parse HEAD 2>/dev/null || true)
+if [[ ! -f ep128emu/src/ep128vm.cpp || "$CURRENT_SUBMODULE" != "$PINNED_SUBMODULE" ]]; then
+  git submodule update --init --recursive --force
 fi
 
-echo '========== FETCHING DEVELOPMENT BRANCH =========='
-git fetch origin "$BRANCH"
-git merge --ff-only FETCH_HEAD
-
-if [[ ! -f ep128emu/src/ep128vm.cpp ]]; then
-  git submodule update --init --recursive
+# Request a reproducible full recompile (e.g. after changing toolchains):
+# CLEAN_BUILD=1 bash scripts/deploy-2dfx-test.sh
+if [[ "${CLEAN_BUILD:-0}" == "1" ]]; then
+  echo '========== DISCARDING COMPILED OBJECT CACHE =========='
+  rm -rf -- build/obj
 fi
 
 export EMSDK_QUIET=1
