@@ -194,16 +194,16 @@ void twodfx_2d_rect(twodfx_layer_t l,uint8_t s,uint16_t x,uint16_t y,uint16_t w,
   egg_api_rectcmd(l,s,0x66,x,y,w,h,stroke,0,0,5);
 }
 void twodfx_2d_fill_round_rect(twodfx_layer_t l,uint8_t s,uint16_t x,uint16_t y,uint16_t w,uint16_t h,uint8_t rx,uint8_t ry){
-  egg_api_rectcmd(l,s,0x68,x,y,w,h,1,rx,ry,7);
+  egg_api_rectcmd(l,s,0x69,x,y,w,h,1,rx,ry,7);
 }
 void twodfx_2d_round_rect(twodfx_layer_t l,uint8_t s,uint16_t x,uint16_t y,uint16_t w,uint16_t h,uint8_t st,uint8_t rx,uint8_t ry){
-  egg_api_rectcmd(l,s,0x69,x,y,w,h,st,rx,ry,7);
+  egg_api_rectcmd(l,s,0x68,x,y,w,h,st,rx,ry,7);
 }
 void twodfx_2d_fill_ellipse(twodfx_layer_t l,uint8_t s,uint16_t x,uint16_t y,uint16_t rx,uint16_t ry){
-  egg_api_rectcmd(l,s,0x6a,x,y,rx,ry,1,0,0,5);
+  egg_api_rectcmd(l,s,0x6b,x,y,rx,ry,1,0,0,5);
 }
 void twodfx_2d_ellipse(twodfx_layer_t l,uint8_t s,uint16_t x,uint16_t y,uint16_t rx,uint16_t ry,uint8_t st){
-  egg_api_rectcmd(l,s,0x6b,x,y,rx,ry,st,0,0,5);
+  egg_api_rectcmd(l,s,0x6a,x,y,rx,ry,st,0,0,5);
 }
 void twodfx_2d_triangle(twodfx_layer_t l,uint8_t s,uint16_t x0,uint16_t y0,uint16_t x1,uint16_t y1,uint16_t x2,uint16_t y2){
   egg_api_tri(l,s,0x75,x0,y0,x1,y1,x2,y2);
@@ -248,8 +248,8 @@ void twodfx_2d_stretch_blit(twodfx_layer_t l,uint8_t s,uint8_t id,twodfx_blit_mo
 void twodfx_2d_pattern_fill(twodfx_layer_t l,uint8_t s,uint16_t x,uint16_t y,
  uint16_t w,uint16_t h,uint8_t pat,uint8_t n){egg_api_rectcmd(l,s,0x72,x,y,w,h,1,pat,n,7);}
 void twodfx_2d_pattern_bucket_fill(twodfx_layer_t l,uint8_t s,uint16_t x,uint16_t y,uint8_t pat,uint8_t n){
-  uint8_t p[7]={egg_api_hi(x,y,0,0,1),(uint8_t)x,(uint8_t)y,pat,n,0,0};
-  egg_api_put(l,s,0x70,p,7);
+  uint8_t p[5]={egg_api_hi(x,y,0,0,1),(uint8_t)x,(uint8_t)y,pat,n};
+  egg_api_put(l,s,0x74,p,5);
 }
 void twodfx_2d_tilemap(twodfx_layer_t l,uint8_t s,uint16_t x,uint16_t y,uint8_t map,
  uint8_t srcx,uint8_t srcy,uint8_t cols,uint8_t rows){
