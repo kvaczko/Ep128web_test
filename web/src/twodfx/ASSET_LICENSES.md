@@ -19,7 +19,7 @@ This notice and a commitment to remove content upon request **do not grant redis
 
 - Original 2dfx public logo, original SHOW_FW graphics and font artwork (to the extent rights are owned by Károly Vaczkó), and independently developed engine/game graphics are provided under MIT.
 - The ZX1 compressed-data *format* is credited to Einar Saukas; no license to third-party ZX1 implementation code is conveyed.
-- The original **private RP2354B firmware source**, its hardware-specific PIO/DMA, multicore scheduling and optimized render paths are not included or relicensed.
+- The original **private RP2354B firmware's MCU/hardware implementation** (including PIO/DMA, multicore scheduling, renderer fast paths and other hardware-specific optimizations) remains excluded and is not relicensed. The original author's **egg-specific C source and his own assets** are an expressly authorized MIT-licensed exception, as documented in `docs/SOURCE_FIDELITY_POLICY.md`. The public `twodfx_api.h` interface may be exposed to portable egg C code.
 - ep128emu source code and VM modifications retain their separate upstream licensing, including applicable GPL terms.
 
 Use of third-party game titles and company names here is for attribution only, not endorsement.
